@@ -18,7 +18,7 @@ namespace pew { namespace resources {
   
   namespace Textures {
     enum ID {
-      Spaceship,
+      DefaultShip,
       UFO,
       Galaxy,
     };

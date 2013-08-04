@@ -11,7 +11,7 @@
 		4C2BCA5317ADBDE5006C6D43 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA5217ADBDE5006C6D43 /* Game.cpp */; };
 		4C2BCA5C17ADD680006C6D43 /* ResourceHolder.inl in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BCA5A17ADD680006C6D43 /* ResourceHolder.inl */; };
 		4C2BCA6D17ADFADA006C6D43 /* StringHelpers.inl in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BCA6C17ADFADA006C6D43 /* StringHelpers.inl */; };
-		4C2BCA6F17ADFB2F006C6D43 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA6E17ADFB2F006C6D43 /* Player.cpp */; };
+		4C2BCA6F17ADFB2F006C6D43 /* Spaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA6E17ADFB2F006C6D43 /* Spaceship.cpp */; };
 		4C2BCA7117ADFD43006C6D43 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA7017ADFD43006C6D43 /* Entity.cpp */; };
 		4C2BCA7317ADFD8B006C6D43 /* SceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA7217ADFD8B006C6D43 /* SceneNode.cpp */; };
 		4C2BCA9A17AE0CC2006C6D43 /* SpriteNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA9917AE0CC1006C6D43 /* SpriteNode.cpp */; };
@@ -35,10 +35,10 @@
 		4C2BCA6517ADF7AE006C6D43 /* SpriteNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteNode.h; sourceTree = "<group>"; };
 		4C2BCA6617ADF871006C6D43 /* World.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		4C2BCA6817ADF93B006C6D43 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		4C2BCA6917ADF9A4006C6D43 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		4C2BCA6917ADF9A4006C6D43 /* Spaceship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaceship.h; sourceTree = "<group>"; };
 		4C2BCA6B17ADFA89006C6D43 /* StringHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHelpers.h; sourceTree = "<group>"; };
 		4C2BCA6C17ADFADA006C6D43 /* StringHelpers.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StringHelpers.inl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		4C2BCA6E17ADFB2F006C6D43 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		4C2BCA6E17ADFB2F006C6D43 /* Spaceship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spaceship.cpp; sourceTree = "<group>"; };
 		4C2BCA7017ADFD43006C6D43 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		4C2BCA7217ADFD8B006C6D43 /* SceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneNode.cpp; sourceTree = "<group>"; };
 		4C2BCA9917AE0CC1006C6D43 /* SpriteNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteNode.cpp; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				4C2BCA6817ADF93B006C6D43 /* Entity.h */,
-				4C2BCA6917ADF9A4006C6D43 /* Player.h */,
-				4C2BCA6E17ADFB2F006C6D43 /* Player.cpp */,
+				4C2BCA6917ADF9A4006C6D43 /* Spaceship.h */,
+				4C2BCA6E17ADFB2F006C6D43 /* Spaceship.cpp */,
 				4C2BCA7017ADFD43006C6D43 /* Entity.cpp */,
 			);
 			path = Entities;
@@ -264,7 +264,7 @@
 			files = (
 				4C2BCA3E17ADB3DF006C6D43 /* main.cpp in Sources */,
 				4C2BCA5317ADBDE5006C6D43 /* Game.cpp in Sources */,
-				4C2BCA6F17ADFB2F006C6D43 /* Player.cpp in Sources */,
+				4C2BCA6F17ADFB2F006C6D43 /* Spaceship.cpp in Sources */,
 				4C2BCA7117ADFD43006C6D43 /* Entity.cpp in Sources */,
 				4C2BCA7317ADFD8B006C6D43 /* SceneNode.cpp in Sources */,
 				4C2BCA9A17AE0CC2006C6D43 /* SpriteNode.cpp in Sources */,

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Claudiu Ceia. All rights reserved.
 //
 
-#ifndef Pew_Pew__Player_h
-#define Pew_Pew__Player_h
+#ifndef Pew_Pew__Spaceship_h
+#define Pew_Pew__Spaceship_h
 
 #include "Entity.h"
 #include "ResourceIdentifiers.h"
@@ -16,14 +16,14 @@
 
 namespace pew { namespace world {
 
-  class Player : public Entity {
+  class Spaceship : public Entity {
     public:
     enum Type {
-      Spaceship,
+      DefaultShip,
     };
     
     public:
-    Player(Type type, const resources::TextureHolder& textures);
+    Spaceship(Type type, const resources::TextureHolder& textures);
     
     virtual void drawCurrent(sf::RenderTarget& target,
                              sf::RenderStates states) const;
