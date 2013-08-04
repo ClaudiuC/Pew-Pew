@@ -23,10 +23,10 @@ namespace pew {
       mStatisticsNumFrames(0),
       mWorld(mWindow) {
         
-    mFont.loadFromFile("Assets/Fonts/Terminus.ttf");
+    mFont.loadFromFile("Assets/Fonts/Inconsolata.otf");
     mStatisticsText.setFont(mFont);
     mStatisticsText.setPosition(5.f, 5.f);
-    mStatisticsText.setCharacterSize(10);
+    mStatisticsText.setCharacterSize(16);
   }
 
   void Game::run() {

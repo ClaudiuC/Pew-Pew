@@ -10,7 +10,6 @@
 		4C2BCA3E17ADB3DF006C6D43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA3D17ADB3DF006C6D43 /* main.cpp */; };
 		4C2BCA5317ADBDE5006C6D43 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA5217ADBDE5006C6D43 /* Game.cpp */; };
 		4C2BCA5C17ADD680006C6D43 /* ResourceHolder.inl in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BCA5A17ADD680006C6D43 /* ResourceHolder.inl */; };
-		4C2BCA5E17ADD7F6006C6D43 /* README.me in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BCA5D17ADD7F6006C6D43 /* README.me */; };
 		4C2BCA6D17ADFADA006C6D43 /* StringHelpers.inl in Resources */ = {isa = PBXBuildFile; fileRef = 4C2BCA6C17ADFADA006C6D43 /* StringHelpers.inl */; };
 		4C2BCA6F17ADFB2F006C6D43 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA6E17ADFB2F006C6D43 /* Player.cpp */; };
 		4C2BCA7117ADFD43006C6D43 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BCA7017ADFD43006C6D43 /* Entity.cpp */; };
@@ -31,7 +30,6 @@
 		4C2BCA5217ADBDE5006C6D43 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		4C2BCA5617ADD0AD006C6D43 /* ResourceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceHolder.h; sourceTree = "<group>"; };
 		4C2BCA5A17ADD680006C6D43 /* ResourceHolder.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ResourceHolder.inl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		4C2BCA5D17ADD7F6006C6D43 /* README.me */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.me; sourceTree = "<group>"; };
 		4C2BCA6217ADF1F8006C6D43 /* ResourceIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceIdentifiers.h; sourceTree = "<group>"; };
 		4C2BCA6417ADF261006C6D43 /* SceneNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
 		4C2BCA6517ADF7AE006C6D43 /* SpriteNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteNode.h; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				4C2BCA3D17ADB3DF006C6D43 /* main.cpp */,
 				4C2BCA3F17ADB3DF006C6D43 /* Assets */,
 				4C2BCA3817ADB3DF006C6D43 /* Supporting Files */,
-				4C2BCA5D17ADD7F6006C6D43 /* README.me */,
 			);
 			path = "Pew Pew!";
 			sourceTree = "<group>";
@@ -234,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2BCA5C17ADD680006C6D43 /* ResourceHolder.inl in Resources */,
-				4C2BCA5E17ADD7F6006C6D43 /* README.me in Resources */,
 				4C2BCA6D17ADFADA006C6D43 /* StringHelpers.inl in Resources */,
 				4C2BCAA017AE1EDA006C6D43 /* galaxy.gif in Resources */,
 				4C2BCAA117AE1EDA006C6D43 /* player.png in Resources */,
