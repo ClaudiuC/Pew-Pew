@@ -13,7 +13,7 @@
 #include "ResourceIdentifiers.h"
 #include "SceneNode.h"
 #include "SpriteNode.h"
-#include "Player.h"
+#include "Spaceship.h"
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/View.hpp>
@@ -57,7 +57,7 @@ namespace pew { namespace world {
     sf::FloatRect mWorldBounds;
     sf::Vector2f mSpawnPosition;
     float mScrollSpeed;
-    Player* mPlayer;
+    Spaceship* mPlayer;
   };
   
 } }

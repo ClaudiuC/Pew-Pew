@@ -55,7 +55,7 @@ namespace pew { namespace world {
   }
 
   void World::loadTextures() {
-    mTextures.load(resources::Textures::Spaceship, "Assets/Graphics/player.png");
+    mTextures.load(resources::Textures::DefaultShip, "Assets/Graphics/player.png");
     mTextures.load(resources::Textures::UFO, "Assets/Graphics/ufo.png");
     mTextures.load(resources::Textures::Galaxy, "Assets/Graphics/galaxy.gif");
   }
@@ -80,18 +80,17 @@ namespace pew { namespace world {
     mSceneLayers[Background]->attachChild(std::move(backgroundSprite));
     
     // Add player's aircraft
-    std::unique_ptr<Player> leader(new Player(Player::Spaceship, mTextures));
+    std::unique_ptr<Spaceship> leader(new Spaceship(Spaceship::DefaultShip, mTextures));
     mPlayer = leader.get();
     mPlayer->setPosition(mSpawnPosition);
     mPlayer->setVelocity(40.f, mScrollSpeed);
     mSceneLayers[Air]->attachChild(std::move(leader));
     
     // Add two escorting aircrafts, placed relatively to the main plane
-    std::unique_ptr<Player> leftEscort(new Player(Player::Spaceship, mTextures));
+    std::unique_ptr<Spaceship> leftEscort(new Spaceship(Spaceship::DefaultShip, mTextures));
     leftEscort->setPosition(-80.f, 50.f);
     mPlayer->attachChild(std::move(leftEscort));
-    
-    std::unique_ptr<Player> rightEscort(new Player(Player::Spaceship, mTextures));
+    std::unique_ptr<Spaceship> rightEscort(new Spaceship(Spaceship::DefaultShip, mTextures));
     rightEscort->setPosition(80.f, 50.f);
     mPlayer->attachChild(std::move(rightEscort));
   }
