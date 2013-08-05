@@ -12,20 +12,20 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
-namespace pew { namespace world {
+namespace Pew {
   
   // This looks ridiculous right now, but we'll have multiple
   // textures for the player
-  resources::Textures::ID toTextureID(Spaceship::Type type) {
+  Textures::ID toTextureID(Spaceship::Type type) {
     switch (type) {
       case Spaceship::DefaultShip:
-        return resources::Textures::DefaultShip;
+        return Textures::DefaultShip;
         
     }
-    return resources::Textures::DefaultShip;
+    return Textures::DefaultShip;
   }
-
-  Spaceship::Spaceship(Type type, const resources::TextureHolder& textures) :
+ 
+  Spaceship::Spaceship(Type type, const TextureHolder& textures) :
     mType(type),
     mSprite(textures.get(toTextureID(type))) {
       
@@ -38,4 +38,14 @@ namespace pew { namespace world {
     target.draw(mSprite, states);
   }
 
-} }
+  unsigned int Spaceship::getCategory() const {
+    switch (mType) {
+      case DefaultShip:
+        return Category::PlayerSpaceship;
+         
+      default:
+        return Category::EnemyUFO;
+    }
+  }
+  
+}

@@ -10,10 +10,10 @@
 
 #include <SFML/Graphics/RenderTarget.hpp>
 
-namespace pew { namespace world {
-
+namespace Pew {
+  
   SpriteNode::SpriteNode(const sf::Texture& texture) : mSprite(texture) {
-  }
+  } 
   
   // TODO: How does one format C++ nicely? :/
   SpriteNode::SpriteNode(const sf::Texture& texture,
@@ -26,4 +26,4 @@ namespace pew { namespace world {
     target.draw(mSprite, states);
   }
 
-} }
+}

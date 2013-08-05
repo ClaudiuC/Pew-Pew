@@ -14,7 +14,7 @@ namespace sf {
 	class Texture;
 }
 
-namespace pew { namespace resources {
+namespace Pew {
   
   namespace Textures {
     enum ID {
@@ -30,6 +30,6 @@ namespace pew { namespace resources {
 
   typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
 
-} }
+}
 
 #endif

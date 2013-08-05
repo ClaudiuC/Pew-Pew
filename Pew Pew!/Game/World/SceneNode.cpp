@@ -8,12 +8,10 @@
 
 #include "SceneNode.h"
 
-// #include <Book/Foreach.hpp>
-
 #include <algorithm>
 #include <cassert>
 
-namespace pew { namespace world {
+namespace Pew {
 
   SceneNode::SceneNode() :
     mChildren(), 
@@ -85,5 +83,21 @@ namespace pew { namespace world {
     
     return transform;
   }
+  
+  void SceneNode::onCommand(const Command& command, sf::Time deltaTime) {
+    // Command current node, if category matches
+    if (command.category & getCategory()) {
+      command.action(*this, deltaTime);
+    }    
+         
+    // Command children
+    for(Ptr& child : mChildren) {
+      child->onCommand(command, deltaTime);
+    }
+  }
+  
+  unsigned int SceneNode::getCategory() const {
+    return Category::Scene;
+  }
 
-} }
+}

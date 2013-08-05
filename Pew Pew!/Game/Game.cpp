@@ -12,7 +12,7 @@
 
 #include <SFML/Window/Event.hpp>
 
-namespace pew {
+namespace Pew {
   const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
   Game::Game() :
@@ -30,46 +30,37 @@ namespace pew {
   }
 
   void Game::run() {
-    sf::Clock clock;
+   	sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
-    while (mWindow.isOpen())
-    {
+    
+    while (mWindow.isOpen()) {
       sf::Time elapsedTime = clock.restart();
       timeSinceLastUpdate += elapsedTime;
-      while (timeSinceLastUpdate > TimePerFrame)
-      {
+      while (timeSinceLastUpdate > TimePerFrame) {
         timeSinceLastUpdate -= TimePerFrame;
         
-        processEvents();
+        processInput();
         update(TimePerFrame);
-        
       }
       
       updateStatistics(elapsedTime);
       render();
     }
   }
-
-  void Game::processEvents() {
+  
+  void Game::processInput() {
+    CommandQueue& commands = mWorld.getCommandQueue();
+    
     sf::Event event;
     while (mWindow.pollEvent(event)) {
-      switch (event.type) {
-        case sf::Event::KeyPressed:
-          handlePlayerInput(event.key.code, true);
-          break;
-          
-        case sf::Event::KeyReleased:
-          handlePlayerInput(event.key.code, false);
-          break;
-          
-        case sf::Event::Closed:
-          mWindow.close();
-          break;
-        
-        default:
-          break;
+      mPlayer.handleEvent(event, commands);
+      
+      if (event.type == sf::Event::Closed) {
+        mWindow.close();
       }
     }
+    
+    mPlayer.handleRealtimeInput(commands);
   }
 
   void Game::update(sf::Time elapsedTime) {
@@ -97,8 +88,4 @@ namespace pew {
       mStatisticsNumFrames = 0;
     }
   }
-
-  void Game::handlePlayerInput(sf::Keyboard::Key, bool) {
-  }
-
 }

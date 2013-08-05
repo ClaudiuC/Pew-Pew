@@ -10,6 +10,7 @@
 #define Pew_Pew__game_h
 
 #include "World.h"
+#include "Player.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Keyboard.hpp>
@@ -17,36 +18,35 @@
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-namespace pew {
+namespace Pew {
    
   class Game : private sf::NonCopyable {
     public: 
-    Game();
-    void run();
+      Game();
+      void run();
     
     private:
-    void processEvents();
-    void update(sf::Time deltaTime);
-    void render();
-    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
-    void updateStatistics(sf::Time elapsedTime);
-    
+      void processInput();
+      void update(sf::Time deltaTime);
+      void render();
+      void updateStatistics(sf::Time elapsedTime);
+      
     private:
-    static const sf::Time TimePerFrame;
-    static const float PlayerSpeed;
-     
-    sf::RenderWindow mWindow;
-    world::World					mWorld;
-    
-    sf::Font mFont;
-		sf::Text mStatisticsText;
-		sf::Time mStatisticsUpdateTime;
-		std::size_t mStatisticsNumFrames;
-    
-    bool mIsMovingUp;
-    bool mIsMovingDown;
-    bool mIsMovingLeft;
-    bool mIsMovingRight;
+      static const sf::Time TimePerFrame;
+       
+      sf::RenderWindow mWindow;
+      World mWorld;
+      Player mPlayer;
+      
+      sf::Font mFont;
+      sf::Text mStatisticsText;
+      sf::Time mStatisticsUpdateTime;
+      std::size_t mStatisticsNumFrames;
+      
+      bool mIsMovingUp;
+      bool mIsMovingDown;
+      bool mIsMovingLeft;
+      bool mIsMovingRight;
   };
 
 }

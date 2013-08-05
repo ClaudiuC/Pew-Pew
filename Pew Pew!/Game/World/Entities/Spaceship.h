@@ -14,25 +14,26 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-namespace pew { namespace world {
+namespace Pew {
 
   class Spaceship : public Entity {
     public:
-    enum Type {
-      DefaultShip,
-    };
+      enum Type {
+        DefaultShip,
+      };
     
     public:
-    Spaceship(Type type, const resources::TextureHolder& textures);
-    
-    virtual void drawCurrent(sf::RenderTarget& target,
-                             sf::RenderStates states) const;
-    
+      Spaceship(Type type, const TextureHolder& textures);
+      
+      virtual void drawCurrent(sf::RenderTarget& target,
+                               sf::RenderStates states) const;
+      virtual unsigned int	getCategory() const;
+      
     private:
-    Type mType;
-    sf::Sprite mSprite;
+      Type mType;
+      sf::Sprite mSprite;
   };
-  
-} }
+   
+}
 
 #endif

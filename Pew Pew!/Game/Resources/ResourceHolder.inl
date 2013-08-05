@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Claudiu Ceia. All rights reserved.
 //
 
-namespace pew { namespace resources {
+namespace Pew {
   
   template <typename Resource, typename Identifier>
   void ResourceHolder<Resource, Identifier>::load(Identifier id,
@@ -61,4 +61,4 @@ namespace pew { namespace resources {
     assert(inserted.second);
   };
   
-} }
+} 

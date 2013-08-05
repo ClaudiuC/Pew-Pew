@@ -10,7 +10,10 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-namespace pew { namespace world {
+#include <algorithm>
+#include <cmath>
+
+namespace Pew {
    
   World::World(sf::RenderWindow& window):
       mWindow(window),
@@ -31,22 +34,19 @@ namespace pew { namespace world {
   }
 
   void World::update(sf::Time deltaTime) {
-    // Scroll the world
+    // Scroll the world, reset player velocity
     mWorldView.move(0.f, mScrollSpeed * deltaTime.asSeconds());
+    mPlayer->setVelocity(0.f, 0.f);
     
-    // Move the player sidewards (plane scouts follow the main aircraft)
-    sf::Vector2f position = mPlayer->getPosition();
-    sf::Vector2f velocity = mPlayer->getVelocity();
-    
-    // If player touches borders, flip its X velocity
-    if (position.x <= mWorldBounds.left + 150.f
-        || position.x >= mWorldBounds.left + mWorldBounds.width - 150.f) {
-      velocity.x = -velocity.x;
-      mPlayer->setVelocity(velocity);
+    // Forward commands to scene graph, adapt velocity (scrolling, diagonal correction)
+    while (!mCommandQueue.isEmpty()) {
+      mSceneGraph.onCommand(mCommandQueue.pop(), deltaTime);
     }
+    adaptPlayerVelocity();
     
-    // Apply movements
+    // Regular update step, adapt position (correct if outside view)
     mSceneGraph.update(deltaTime);
+    adaptPlayerPosition();
   }
 
   void World::draw() {
@@ -55,9 +55,9 @@ namespace pew { namespace world {
   }
 
   void World::loadTextures() {
-    mTextures.load(resources::Textures::DefaultShip, "Assets/Graphics/player.png");
-    mTextures.load(resources::Textures::UFO, "Assets/Graphics/ufo.png");
-    mTextures.load(resources::Textures::Galaxy, "Assets/Graphics/galaxy.gif");
+    mTextures.load(Textures::DefaultShip, "Assets/Graphics/player.png");
+    mTextures.load(Textures::UFO, "Assets/Graphics/ufo.png");
+    mTextures.load(Textures::Galaxy, "Assets/Graphics/galaxy.gif");
   }
 
   void World::buildScene() {
@@ -70,7 +70,7 @@ namespace pew { namespace world {
     }
     
     // Prepare the tiled background
-    sf::Texture& texture = mTextures.get(resources::Textures::Galaxy);
+    sf::Texture& texture = mTextures.get(Textures::Galaxy);
     sf::IntRect textureRect(mWorldBounds);
     texture.setRepeated(true);
     
@@ -95,4 +95,32 @@ namespace pew { namespace world {
     mPlayer->attachChild(std::move(rightEscort));
   }
 
-} }
+  void World::adaptPlayerPosition() {
+    // Keep player's position inside the screen bounds, at least borderDistance units from the border
+    sf::FloatRect viewBounds(mWorldView.getCenter() - mWorldView.getSize() / 2.f, mWorldView.getSize());
+    const float borderDistance = 40.f;
+    
+    sf::Vector2f position = mPlayer->getPosition();
+    position.x = std::max(position.x, viewBounds.left + borderDistance);
+    position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance);
+    position.y = std::max(position.y, viewBounds.top + borderDistance);
+    position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance);
+    mPlayer->setPosition(position);
+  }
+  
+  void World::adaptPlayerVelocity() {
+    sf::Vector2f velocity = mPlayer->getVelocity();
+    
+    // If moving diagonally, reduce velocity (to have always same velocity)
+    if (velocity.x != 0.f && velocity.y != 0.f) {
+      mPlayer->setVelocity(velocity / std::sqrt(2.f));
+    } 
+    
+    // Add scrolling velocity
+    mPlayer->accelerate(0.f, mScrollSpeed);
+  }
+  
+  CommandQueue& World::getCommandQueue() {
+    return mCommandQueue;
+  }
+}
