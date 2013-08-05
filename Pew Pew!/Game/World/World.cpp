@@ -85,14 +85,6 @@ namespace Pew {
     mPlayer->setPosition(mSpawnPosition);
     mPlayer->setVelocity(40.f, mScrollSpeed);
     mSceneLayers[Air]->attachChild(std::move(leader));
-    
-    // Add two escorting aircrafts, placed relatively to the main plane
-    std::unique_ptr<Spaceship> leftEscort(new Spaceship(Spaceship::DefaultShip, mTextures));
-    leftEscort->setPosition(-80.f, 50.f);
-    mPlayer->attachChild(std::move(leftEscort));
-    std::unique_ptr<Spaceship> rightEscort(new Spaceship(Spaceship::DefaultShip, mTextures));
-    rightEscort->setPosition(80.f, 50.f);
-    mPlayer->attachChild(std::move(rightEscort));
   }
 
   void World::adaptPlayerPosition() {
